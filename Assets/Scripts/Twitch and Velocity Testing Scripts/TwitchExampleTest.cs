@@ -15,21 +15,9 @@ public class TwitchExampleTest : MonoBehaviour
     //when message is recieved from IRC-server or our own message.
     void OnChatMsgRecieved(string msg)
     {
-        //parse from buffer.
-        int msgIndex = msg.IndexOf("PRIVMSG #");
-        string msgString = msg.Substring(msgIndex + IRC.channelName.Length + 11);
-        string user = msg.Substring(1, msg.IndexOf('!') - 1);
-
-        //remove old messages for performance reasons.
-        if (messages.Count > maxMessages)
-        {
-            Destroy(messages.First.Value);
-            messages.RemoveFirst();
-        }
-
-        //add new message.
-        CreateUIMessage(user, msgString);
+        Debug.Log(msg);
     }
+	
     void CreateUIMessage(string userName, string msgString)
     {
         Color32 c = ColorFromUsername(userName);

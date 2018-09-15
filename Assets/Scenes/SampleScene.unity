@@ -284,9 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ef6e614be1dc74f807a892bf51a420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oauth: 
-  nickName: 
-  channelName: 
+  oauth: rpa931lpsmvifnrgcr4ay12ilihigj
+  nickName: gamebot
+  channelName: shockawave123
 --- !u!4 &973930539
 Transform:
   m_ObjectHideFlags: 0
