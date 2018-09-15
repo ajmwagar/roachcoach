@@ -6,26 +6,30 @@ public class climbzone : MonoBehaviour {
 
 
 	public GameObject player;
-	Basic3DRBmovement mover;
+	private Basic3DRBmovement mover;
+	private Mouse mouse;
 
-	void Start(){
+	void Start()
+	{
 		mover = player.GetComponent<Basic3DRBmovement> ();
 	}
 
 
-	void OnTriggerEnter(Collider col){
-		if (col.gameObject == player) {
+	void OnTriggerEnter(Collider col)
+	{
+		mouse = col.gameObject.GetComponent<Mouse>();
+		if (mouse != null) {
 			mover.canClimb = true;
 
 		}
 	}
 
 
-	void OnTriggerExit(Collider col){
-		if (col.gameObject == player) {
+	void OnTriggerExit(Collider col)
+	{
+		mouse = col.gameObject.GetComponent<Mouse>();
+		if (mouse != null) {
 			mover.canClimb = false;
 		}
 	}
-
-
 }
