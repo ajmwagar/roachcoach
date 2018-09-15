@@ -8,7 +8,7 @@ public class Basic3DRBmovement : MonoBehaviour {
 	//walclimb check
 	public bool canClimb;
 
-	Rigidbody r9b;
+	Rigidbody rb;
 	Animator anim;
 
 	public float maxSpeed = 2;
