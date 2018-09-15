@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 114774106162746648}
   - component: {fileID: 114960474129808040}
   - component: {fileID: 114998184447846942}
+  - component: {fileID: 114938035646824194}
   m_Layer: 0
   m_Name: mouse
   m_TagString: Untagged
@@ -137,8 +138,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729237014947712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -0.93}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 1.25, y: 1, z: 0.02}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.2}
   m_Children:
   - {fileID: 4833364717841076}
   - {fileID: 4898138811594054}
@@ -419,6 +420,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPoint: {fileID: 4399521174388606}
+--- !u!114 &114938035646824194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1729237014947712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adee71295233c345a73234392728e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canClimb: 0
+  maxSpeed: 2
+  maxRotationalSpeed: 2
+  grounded: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpForce: 10
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
 --- !u!114 &114960474129808040
 MonoBehaviour:
   m_ObjectHideFlags: 1
