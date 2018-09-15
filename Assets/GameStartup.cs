@@ -22,7 +22,7 @@ public class GameStartup : MonoBehaviour {
             }
 
         }
-        else if (GameManager.playerType == PlayerType.Chef)
+        else if (GameManager.playerType == PlayerType.Mouse)
         {
             foreach (GameObject thing in chefStuff)
             {

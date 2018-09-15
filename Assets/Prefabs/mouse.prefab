@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 23484103724569756}
   - component: {fileID: 135609888538387968}
   - component: {fileID: 54318668653442948}
+  - component: {fileID: 114788378977004682}
   - component: {fileID: 114660685458362894}
   - component: {fileID: 114774106162746648}
   - component: {fileID: 114960474129808040}
@@ -406,8 +407,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf893eba969901c41bc25bca719ed8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 150
-  rotationSpeed: 3
+  moveSpeed: 3
+  rotationSpeed: 150
+--- !u!114 &114788378977004682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1729237014947712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58087caf0ce1d0146b6b1173331bc168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTeleporting: 0
 --- !u!114 &114820989210090166
 MonoBehaviour:
   m_ObjectHideFlags: 1
