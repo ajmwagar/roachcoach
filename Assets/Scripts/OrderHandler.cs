@@ -44,8 +44,8 @@ public class OrderHandler : MonoBehaviour {
         }
 
         Order sort(Order sortme){
-         List<Ingredient> SortedList = sortme.ings.OrderBy(o=>int(o)).ToList();
-         sortme.ings = SortedList;
+        //  List<Ingredient> SortedList = sortme.ings.OrderBy(o=>int(o)).ToList();
+        //  sortme.ings = SortedList;
 
          return sortme;
         }
