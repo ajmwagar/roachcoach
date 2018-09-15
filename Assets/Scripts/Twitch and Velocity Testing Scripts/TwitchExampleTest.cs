@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(TwitchIRC))]
-public class TwitchChatTest : MonoBehaviour
+public class TwitchExampleTest : MonoBehaviour
 {
     public int maxMessages = 100; //we start deleting UI elements when the count is larger than this var.
     private LinkedList<GameObject> messages = new LinkedList<GameObject>();
