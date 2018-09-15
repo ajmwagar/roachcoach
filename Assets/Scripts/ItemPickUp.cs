@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour 
 {
+
 	void OnTriggerEnter(Collider other)
 	{
         var mouse = other.gameObject.GetComponent<Mouse>();
