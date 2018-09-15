@@ -40,15 +40,15 @@ public class MainMenu : MonoBehaviour
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			SetPlayerAsChef();
-		}
+		// if(Input.GetKeyDown(KeyCode.Alpha1))
+		// {
+		// 	SetPlayerAsChef();
+		// }
 
-		if(Input.GetKeyDown(KeyCode.Alpha2))
-		{
-			SetPlayerAsMouse();
-		}
+		// if(Input.GetKeyDown(KeyCode.Alpha2))
+		// {
+		// 	SetPlayerAsMouse();
+		// }
 	}
 	
 	private void SetPlayerAsChef()
