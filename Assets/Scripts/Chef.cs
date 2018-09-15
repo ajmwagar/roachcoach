@@ -10,7 +10,7 @@ public class Chef : NetworkBehaviour
 	{
 		if(!isLocalPlayer)
 		{
-			GetComponent<MovementProto>().enabled = false;
+			//GetComponent<MovementProto>().enabled = false;
 		}
 	}
 	
