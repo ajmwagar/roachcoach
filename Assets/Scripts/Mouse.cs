@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+
 public class Mouse : NetworkBehaviour {
 
-	// Use this for initialization
 	void Start () 
 	{
 		if(!isLocalPlayer)
 		{
 			GetComponent<MovementProto>().enabled = false;
-		}
-		
+			GetComponent<Basic3DRBmovement>().enabled = false;
+			GetComponent<climbzone>().enabled = false;
+		}	
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
