@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class MovementProto : MonoBehaviour {
+using UnityEngine.Networking;
+public class MovementProto : MonoBehaviour 
+{
 
 	[SerializeField]
 	private float moveSpeed = 150.0f;
