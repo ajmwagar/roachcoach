@@ -55,16 +55,16 @@ public class MainMenu : MonoBehaviour
 	{
 		GameManager.playerType = PlayerType.Chef;
 
-		//hud.SetActive(true);
-		SetJoinGamePanel();
+		hud.SetActive(true);
+		//SetJoinGamePanel();
 	}
 
 	private void SetPlayerAsMouse()
 	{
 		GameManager.playerType = PlayerType.Mouse;
 
-		//hud.SetActive(true);
-		SetJoinGamePanel();
+		hud.SetActive(true);
+		//SetJoinGamePanel();
 	}
 
 	private void SetJoinGamePanel()
