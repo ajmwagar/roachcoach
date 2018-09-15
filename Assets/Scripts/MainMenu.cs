@@ -55,7 +55,7 @@ public class MainMenu : MonoBehaviour
 	{
 		GameManager.playerType = PlayerType.Chef;
 
-		//hud.SetActive(true);
+		hud.SetActive(true);
 		SetJoinGamePanel();
 	}
 
@@ -63,7 +63,7 @@ public class MainMenu : MonoBehaviour
 	{
 		GameManager.playerType = PlayerType.Mouse;
 
-		//hud.SetActive(true);
+		hud.SetActive(true);
 		SetJoinGamePanel();
 	}
 
