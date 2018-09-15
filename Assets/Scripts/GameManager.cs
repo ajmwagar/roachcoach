@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerType { Chef, Mouse };
+public enum PlayerType { None, Chef, Mouse,  };
 
 public class GameManager : MonoBehaviour
 {

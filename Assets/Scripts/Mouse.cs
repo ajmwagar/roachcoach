@@ -11,8 +11,16 @@ public class Mouse : NetworkBehaviour {
 		{
 			GetComponent<MovementProto>().enabled = false;
 			GetComponent<Basic3DRBmovement>().enabled = false;
-			GetComponent<climbzone>().enabled = false;
-		}	
+			//GetComponent<climbzone>().enabled = false;
+		}
+        if (!isServer)
+        {
+            MouseItemGrabber[] mice = GetComponentsInChildren<MouseItemGrabber>();
+            foreach(MouseItemGrabber mouse in mice)
+            {
+                mouse.enabled = false;
+            }
+        }
 	}
 	
 	void Update () {
