@@ -128,8 +128,9 @@ public class OrderHandler : MonoBehaviour
                 twithComm.SendMsg(string.Format("You got it {0}, making that {1}", order.user, order.label));
             }
            order.setDescription(message);
-            orders.Enqueue(order);
-            Debug.Log(order.ToString());
+           orders.Enqueue(order);
+      orderNotification.SetOrderNotification(order);
+      Debug.Log(order.ToString());
         }
         else
         {
