@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
   using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace Assets
@@ -131,6 +132,34 @@ namespace Assets
         ingredients += ingr.ToString() + " ";
       }
       return JsonUtility.ToJson(this) + bread + ingredients;
+    }
+
+    public String toPrettyString()
+    {
+      StringBuilder sb = new StringBuilder();
+      Dictionary<Ingredient.ITypes, int> ingredients = new Dictionary<Ingredient.ITypes, int>();
+      foreach (Ingredient ingr in ings)
+      {
+        if (!ingredients.ContainsKey(ingr.itype))
+          ingredients.Add(ingr.itype, 0);
+
+        ingredients[ingr.itype] += 1;
+      }
+
+      sb.AppendFormat("{0} w/ ", bread);
+      foreach (Ingredient.ITypes type in Enum.GetValues(typeof(Ingredient.ITypes)))
+      {
+        if (ingredients.ContainsKey(type))
+        { 
+          sb.Append(ingredients[type]);
+          sb.Append(" ");
+          sb.Append(type.ToString());
+          sb.Append(',');
+        }
+      }
+      sb.Remove(sb.Length - 1, 1);
+
+      return sb.ToString();
     }
 
   }

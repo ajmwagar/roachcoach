@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Assets;
+using System.Text.RegularExpressions;
 
 [RequireComponent(typeof(TwitchIRC))]
 public class TwitchChatExample : MonoBehaviour
@@ -20,12 +21,30 @@ public class TwitchChatExample : MonoBehaviour
         string user = msg.Substring(1, msg.IndexOf('!') - 1);
 
 
-        if(msgString.StartsWith("Hey Roach,"))
+    if (msgString.StartsWith("Hey Roach,", System.StringComparison.CurrentCultureIgnoreCase))
+    {
+      Regex whatsOnMenuRegex = new Regex("hey roach, what.*menu.*", RegexOptions.IgnoreCase);
+      //Whats on the menu
+      if (whatsOnMenuRegex.IsMatch(msgString))
+      {
+        string menu = OrderHandler.whatsOnTheMenu();
+       /* foreach (String menuItem in menu.Split('\r\n'))
         {
-           orderHandler.handleStreamText(msgString, user);
-        }
-        //remove old messages for performance reasons.
-        if (messages.Count > maxMessages)
+          IRC.SendMsg(menuItem);
+        }*/
+      }
+
+      //Assume its an order
+      else
+      {
+        orderHandler.handleStreamText(msgString, user);
+      }
+
+    }
+
+
+    //remove old messages for performance reasons.
+    if (messages.Count > maxMessages)
         {
             Destroy(messages.First.Value);
             messages.RemoveFirst();

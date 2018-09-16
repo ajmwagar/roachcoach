@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.TemplateOrders;
+using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace Assets
@@ -52,9 +54,10 @@ namespace Assets
 
     public void handleStreamText(string message, string user)
     {
-      Order order = Order.convertStringToOrder(message).setLabel("Custom Order").setUser(user);
+      Order order = Order.convertStringToOrder(message);
       if (validateOrder(order))
       {
+        order.setLabel("Custom Order").setUser(user);
         orders.Enqueue(order);
         Debug.Log(order.ToString());
       }
@@ -69,8 +72,25 @@ namespace Assets
 
       public static bool validateOrder(Order order)
     {
+      if(order == null)
+      {
+        return false;
+      }
       bool hasBread = (order.bread != null);
       return hasBread;
+    }
+
+    public static string whatsOnTheMenu()
+    {
+      StringBuilder sb = new StringBuilder();
+      List<Order> orders = OrderFactory.getAllPossibleOrders();
+      sb.Append("Menu Options:");
+      foreach (Order order in orders) {
+        sb.AppendFormat("*** {0} - {1} ***", order.label, order.toPrettyString());
+       
+      }
+
+      return sb.ToString();
     }
 
     bool OrderCheck(Order final, Order current)
