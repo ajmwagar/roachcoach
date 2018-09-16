@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
   public class Ingredient
@@ -58,12 +59,12 @@ using UnityEngine;
         tempType = ITypes.HAM;
         found = true;
       }
-      else if (normString == "whitebread")
+      else if (new Regex(".*white.*").IsMatch(normString))
       {
         tempType = ITypes.WHITEBREAD;
         found = true;
       }
-      else if (normString == "wheatbread")
+      else if (new Regex(".*wheat.*").IsMatch(normString))
       {
         tempType = ITypes.WHEATBREAD;
         found = true;

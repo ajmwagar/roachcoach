@@ -9,6 +9,7 @@ namespace Assets.Scripts.TemplateOrders
   {
     public SuperGreenOrder()
     {
+      label = "Super Green";
       ingredients = new List<Ingredient>();
       ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
       ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));

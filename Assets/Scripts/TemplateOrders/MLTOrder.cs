@@ -10,6 +10,7 @@ namespace Assets.Scripts.TemplateOrders
   {
     public HLTOrder()
     {
+      label = "HLT";
       ingredients = new List<Ingredient>();
       ingredients.Add(new Ingredient(Ingredient.ITypes.HAM));
       ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));

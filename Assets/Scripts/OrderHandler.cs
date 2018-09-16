@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.TemplateOrders;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -73,17 +74,35 @@ using System;
 
     public void handleStreamText(string message, string user)
     {
-      Order order = Order.convertStringToOrder(message);
+      Boolean customOrder = false;
+      Order order = OrderFactory.Create(message);
+      if (order == null)
+      {
+        order = Order.convertStringToOrder(message);
+        order.setLabel("Custom Order").setUser(user);
+        customOrder = true;
+      }
+      else
+      {
+        order = Order.convertStringToOrder(message, order);
+      }
       if (validateOrder(order))
       {
-        order.setLabel("Custom Order").setUser(user);
+        if (customOrder)
+        {
+          twithComm.SendMsg(string.Format("Sure {0}, I can make a sandwich that has {1}", order.user,order.ToPrettyString()));
+        }
+        else
+        {
+          twithComm.SendMsg(string.Format("You got it {0}, making that {1}", order.user, order.label));
+        }
         orders.Enqueue(order);
         Debug.Log(order.ToString());
       }
       else
       {
         //Courtesy Message for bad ingredients
-        twithComm.SendMsg(string.Format("Sorry {0}, thats not a real sandwich. We need a type of bread.", user));
+        twithComm.SendMsg(string.Format("Sorry {0}, thats not a real sandwich. Select a sandwich from our menu. To see it type: \"Hey Roach, whats on the menu?\" Or build your own by naming off the ingredients you want. To see our ingredients type \"Hey Roach, what ingredients do you have?\" .", user));
       }
 
 
@@ -103,10 +122,10 @@ using System;
     {
       StringBuilder sb = new StringBuilder();
       List<Order> orders = OrderFactory.getAllPossibleOrders();
-      sb.Append("Menu Options:");
+      sb.Append("Menu Options:|");
       foreach (Order order in orders) {
-        sb.AppendFormat("*** {0} - {1} ***", order.label, order.toPrettyString());
-       
+        sb.AppendFormat("{0} - {1}|", order.label, order.ToPrettyString());
+ 
       }
 
       return sb.ToString();

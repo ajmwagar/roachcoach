@@ -13,6 +13,7 @@ using UnityEngine;
     public List<Ingredient> ingredients;
     public Ingredient bread;
     public String label = "";
+    public String description = "";
     public String user = "";
 
     public static Order convertStringToOrder(String orderString)
@@ -117,13 +118,19 @@ using UnityEngine;
           return this;
         }
 
-        public Order setUser(String user)
-        {
-          this.user = user;
-          return this;
-        }
+  public Order setUser(String user)
+  {
+    this.user = user;
+    return this;
+  }
 
-        public bool IsSame(Order other)
+  public Order setDescription(String description)
+  {
+    this.description = description;
+    return this;
+  }
+
+  public bool IsSame(Order other)
         {
           if(other == null)
           {
@@ -157,7 +164,7 @@ using UnityEngine;
       return JsonUtility.ToJson(this) + bread + ingredients;
     }
 
-    public String toPrettyString()
+    public String ToPrettyString()
     {
       StringBuilder sb = new StringBuilder();
       Dictionary<Ingredient.ITypes, int> ingredients = new Dictionary<Ingredient.ITypes, int>();
