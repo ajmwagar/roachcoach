@@ -19,20 +19,29 @@ public class Smasher : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
 
+        Debug.Log("hit mag" + collision.relativeVelocity.magnitude);
+
         if (collision.relativeVelocity.magnitude > smashThreshold)
         {
             Debug.Log("smash");
 
             GameObject hit = collision.collider.gameObject;
 
-            var mouse = hit.GetComponent<Mouse>();
+            var mouseHealth = hit.GetComponent<MouseHealth>();
 
-            if (mouse)
+            if (mouseHealth)
             {
-
+                mouseHealth.Smash();
             }
 
         }
-            
     }
+
+    void OnTriggerEnter()
+    {
+
+        Debug.Log("trig");
+
+    }
+
 }
