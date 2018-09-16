@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace Assets
-{
   public class OrderHandler : MonoBehaviour
   {
     // Number of orders to hold in queue
@@ -127,4 +125,3 @@ namespace Assets
       }
     }
   }
-}

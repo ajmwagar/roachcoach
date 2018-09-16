@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections;
-  using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace Assets
-{
   public class Order {
     public const int MAX_INGS = 6;
     public const int MIN_INGS = 3;
@@ -161,8 +159,5 @@ namespace Assets
 
       return sb.ToString();
     }
-
-  }
-
 
   }
