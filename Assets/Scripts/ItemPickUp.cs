@@ -48,7 +48,7 @@ public class ItemPickUp : NetworkBehaviour
 
     public void Update()
     {
-        if(heldByType != PlayerType.None)
+        if(heldByType != PlayerType.None && heldBy)
         {
             gameObject.transform.position = heldBy.position;
             gameObject.transform.rotation = heldBy.rotation;
