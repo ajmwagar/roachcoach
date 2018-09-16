@@ -68,6 +68,7 @@ public class ItemPickUp : NetworkBehaviour
             rigidbody.isKinematic = true;
             if (mouse)
             {
+                Debug.Log("Mouse Pickup");
                 GetComponentInChildren<Basic3DRBmovement>().enabled = false;
             }
         }
@@ -95,6 +96,7 @@ public class ItemPickUp : NetworkBehaviour
 
         if (mouse)
         {
+            Debug.Log("Mouse Drop");
             GetComponentInChildren<Basic3DRBmovement>().enabled = true;
         }
     }
