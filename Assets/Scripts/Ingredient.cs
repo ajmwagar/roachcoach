@@ -2,21 +2,81 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ingredient {
-  // Add more
-  public enum ITypes {
-    LETTUCE, TOMATO, CHEESE, HAM, WHEATBREAD, WHITEBREAD
-  }
+namespace Assets
+{
+  public class Ingredient
+  {
+    public enum ITypes
+    {
+      LETTUCE, TOMATO, CHEESE, HAM, WHEATBREAD, WHITEBREAD
+    }
 
-  public ITypes current;
+    public ITypes itype;
 
-  // Return a random Ingredient
-  public Ingredient(bool random){
-    if (random){
-      System.Random ran = new System.Random();
-      int d = ran.Next(0,7);
-      Debug.Log(d);
-      current = (ITypes) d;
+    public Ingredient(bool random)
+    {
+      if (random)
+      {
+        System.Random ran = new System.Random();
+        int d = ran.Next(0, 7);
+        itype = (ITypes)d;
+      }
+    }
+
+    public Ingredient(ITypes itype)
+    {
+      this.itype = itype;
+    }
+
+    public Ingredient()
+    {
+      this.itype = ITypes.LETTUCE;
+    }
+
+    public static bool convertToIngredient(string ingredient, out Ingredient ingr)
+    {
+      ITypes tempType = Ingredient.ITypes.CHEESE;
+      string normString = ingredient.ToLower();
+      bool found = false;
+
+      //TODO change to switch statement
+      if (normString == "lettuce")
+      {
+        tempType = ITypes.LETTUCE;
+        found = true;
+      }
+      else if (normString == "cheese")
+      {
+        tempType = ITypes.CHEESE;
+        found = true;
+      }
+      else if (normString.Contains("tomato"))
+      {
+        tempType = ITypes.TOMATO;
+        found = true;
+      }
+      else if (normString == "ham")
+      {
+        tempType = ITypes.HAM;
+        found = true;
+      }
+      else if (normString == "whitebread")
+      {
+        tempType = ITypes.WHITEBREAD;
+        found = true;
+      }
+      else if (normString == "wheatbread")
+      {
+        tempType = ITypes.WHEATBREAD;
+        found = true;
+      }
+      ingr = new Ingredient(tempType);
+      return found;
+    }
+
+    public override string ToString()
+    {
+        return this.itype.ToString();
     }
   }
 }

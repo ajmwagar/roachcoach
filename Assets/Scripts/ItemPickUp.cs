@@ -13,6 +13,11 @@ public class ItemPickUp : NetworkBehaviour
 
     private PlayerType heldByType;
 
+    private Vector3 prevPos;
+    private Vector3 curPos;
+
+    private Vector3 curVelocity;
+
     private void Start()
     {
 
@@ -20,6 +25,21 @@ public class ItemPickUp : NetworkBehaviour
 
         rigidbody = GetComponent<Rigidbody>();
 
+        curPos = rigidbody.transform.position;
+
+        curVelocity = Vector3.zero;
+
+    }
+
+    private void FixedUpdate()
+    {
+
+        prevPos = curPos;
+        curPos = rigidbody.transform.position;
+
+        Vector3 velocity = (curPos - prevPos) / Time.deltaTime;
+
+        curVelocity = (velocity + curVelocity) / 2;
     }
 
     public void Update()
@@ -42,6 +62,14 @@ public class ItemPickUp : NetworkBehaviour
             heldByType = ptype;
             rigidbody.isKinematic = true;
         }
+    }
+
+    public void Drop()
+    {
+        heldBy = null;
+        heldByType = PlayerType.None;
+        rigidbody.isKinematic = false;
+        rigidbody.velocity = curVelocity;
     }
 
     /*
