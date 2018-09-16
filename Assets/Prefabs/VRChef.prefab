@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4885884280239946}
   - component: {fileID: 95715750005426486}
   m_Layer: 0
-  m_Name: Glove
+  m_Name: LeftGlove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 4844359393781242}
   - component: {fileID: 95016080936449034}
   m_Layer: 0
-  m_Name: Glove (1)
+  m_Name: RightGlove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1804,8 +1804,13 @@ MonoBehaviour:
   lHand: {fileID: 4551712175636970}
   rHand: {fileID: 4329148040515604}
   body: {fileID: 0}
+<<<<<<< HEAD
   LeftHand: {fileID: 0}
   RightHand: {fileID: 0}
+=======
+  LeftHand: {fileID: 95715750005426486}
+  RightHand: {fileID: 95016080936449034}
+>>>>>>> 720f027226c4ba0614ee0c077885ff9a4bf66d9d
 --- !u!114 &114883510754987786
 MonoBehaviour:
   m_ObjectHideFlags: 1
