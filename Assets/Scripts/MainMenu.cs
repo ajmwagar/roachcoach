@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System;
 
 public class MainMenu : MonoBehaviour 
 {
@@ -14,13 +15,27 @@ public class MainMenu : MonoBehaviour
 	private Button SetMouseBtn;
 
 	[SerializeField]
+	private GameObject JoinGamePanel;
+
+	[SerializeField]
+	private GameObject FirstMenuPanel;
+
+	[SerializeField]
+	private Button BackBtn;
+
+	public event Action OnPlayerSelected = delegate{};
+
+	[SerializeField]
 	private GameObject hud;
 
-	private 
 	void Start ()
 	{
 		SetChefBtn.onClick.AddListener(SetPlayerAsChef);
 		SetMouseBtn.onClick.AddListener(SetPlayerAsMouse);
+		BackBtn.onClick.AddListener(BackHandler);
+
+		FirstMenuPanel.SetActive(true);
+		JoinGamePanel.SetActive(false);
 	}
 
 	void Update()
@@ -40,20 +55,28 @@ public class MainMenu : MonoBehaviour
 	{
 		GameManager.playerType = PlayerType.Chef;
 
-		SetChefBtn.interactable = false;
-		SetMouseBtn.interactable = true;
-
 		hud.SetActive(true);
-
+		//SetJoinGamePanel();
 	}
 
 	private void SetPlayerAsMouse()
 	{
 		GameManager.playerType = PlayerType.Mouse;
 
-		SetChefBtn.interactable = true;
-		SetMouseBtn.interactable = false;
-
 		hud.SetActive(true);
+		//SetJoinGamePanel();
+	}
+
+	private void SetJoinGamePanel()
+	{
+		JoinGamePanel.SetActive(true);
+		FirstMenuPanel.SetActive(false);
+
+		OnPlayerSelected.Invoke();
+	}
+
+	private void BackHandler(){
+	   JoinGamePanel.SetActive(false);
+	   FirstMenuPanel.SetActive(true);
 	}
 }

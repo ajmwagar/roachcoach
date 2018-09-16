@@ -92,3 +92,22 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+Assets/Art/Mouse/materials.meta~HEAD.meta
+Assets/Art/Environment/models.meta
+Assets/Art/Environment/materials/crMatTruckFloor.mat.meta
+Assets/Sounds/ss_OrderComplete.ogg.meta
+Assets/Sounds/ss_MouseSteal.ogg.meta
+Assets/Sounds/ss_MouseScurry.ogg.meta
+Assets/Sounds/ss_MouseDead.ogg.meta
+Assets/Sounds/ss_MalletBop.ogg.meta
+Assets/Sounds/ss_KnifeChop.ogg.meta
+Assets/Sounds/ss_HotPlateReady.ogg.meta
+Assets/Sounds/ss_GrillNoise.ogg.meta
+Assets/Sounds/ss_DoneSandwich.ogg.meta
+Assets/Sounds/ss_Ding.ogg.meta
+Assets/Art/Mouse/textures.meta
+Assets/Art/Mouse/texture.meta
+Assets/Sounds/ss_SodaFill.ogg.meta
+Assets/Sounds/FoodTruckSong.ogg.meta
+Assets/Sounds/ss_KnobClick.ogg.meta
+Assets/Art/Mouse.meta~HEAD.meta
