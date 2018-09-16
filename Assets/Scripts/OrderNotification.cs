@@ -6,10 +6,10 @@ public class OrderNotification : MonoBehaviour
 {
     //public event Action NewOrderPoppedUp = delegate { };
     [SerializeField]
-    private TextMesh UserAndLabel;
+    private TMPro.TextMeshProUGUI UserAndLabel;
 
     [SerializeField]
-    private TextMesh Description;
+    private TMPro.TextMeshProUGUI Description;
 
     void Awake()
     {
