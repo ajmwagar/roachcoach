@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canClimb: 0
-  maxSpeed: 2
+  maxSpeed: 1
   maxRotationalSpeed: 40
   grounded: 0
   ground:
@@ -1432,7 +1432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e965f59bb425424db05299e5fe41bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smashThreshold: 0.6
+  smashThreshold: 0.3
 --- !u!114 &114875722629449238
 MonoBehaviour:
   m_ObjectHideFlags: 1

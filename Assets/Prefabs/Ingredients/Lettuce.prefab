@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114697090297099790}
   - component: {fileID: 114115630124944482}
   - component: {fileID: 114318965471784884}
+  - component: {fileID: 114938349435957826}
   m_Layer: 0
   m_Name: Lettuce
   m_TagString: Untagged
@@ -245,3 +246,15 @@ MonoBehaviour:
     i15: 150
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114938349435957826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1173486306376026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87de14ab51c4fa2488ea5e58eb024090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0

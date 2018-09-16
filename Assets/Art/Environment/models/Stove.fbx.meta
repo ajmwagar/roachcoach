@@ -13,7 +13,32 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Stove
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Burner
+    second: {fileID: 2100000, guid: 90bcdf6fb00af2c43ad19302dc6af882, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome
+    second: {fileID: 2100000, guid: 95d9a5759245e944ba636106c191ea22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark
+    second: {fileID: 2100000, guid: 964550e8ac9126848950d477762eb152, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Screen
+    second: {fileID: 2100000, guid: 2f8fb3b938aa62145b7346a37b9ff2b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stove
+    second: {fileID: 2100000, guid: f0879525369f2a949b24d8e19e9cb307, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
