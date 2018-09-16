@@ -10,10 +10,10 @@ namespace Assets.Scripts.TemplateOrders
     public RedCheesyOrder()
     {
       label = "Red N Cheesy";
-      ings = new List<Ingredient>();
-      ings.Add(new Ingredient(Ingredient.ITypes.TOMATO));
-      ings.Add(new Ingredient(Ingredient.ITypes.CHEESE));
-      ings.Add(new Ingredient(Ingredient.ITypes.CHEESE));
+      ingredients = new List<Ingredient>();
+      ingredients.Add(new Ingredient(Ingredient.ITypes.TOMATO));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.CHEESE));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.CHEESE));
       bread = new Ingredient(Ingredient.ITypes.WHEATBREAD);
     }
   }

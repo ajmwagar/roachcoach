@@ -4,9 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
-
-namespace Assets
-{
+using System;
   public class OrderHandler : MonoBehaviour
   {
     // Number of orders to hold in queue
@@ -19,6 +17,10 @@ namespace Assets
 
     // Queue for handling orders
     public Queue<Order> orders = new Queue<Order>();
+
+    public event Action<bool> OnOrderCompleted = delegate { };
+
+    DeliveryArea deliveryArea;
 
     // Use this for initialization
     void Start()
@@ -35,22 +37,39 @@ namespace Assets
         Recipe(o);
       }
 
+      deliveryArea = GameObject.FindObjectOfType<DeliveryArea>();
+		  deliveryArea.OnPlatePickUp += PickUpFinishedOrder;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //   // TODO Replace with realy
+    //   bool done = final.IsSame(current); //OrderCheck(new Order(), new Order());
+
+    //   // Goto next order
+    //   if (done)
+    //   {
+    //     current = new Order();
+    //     final = orders.Dequeue();
+    //     Recipe(current);
+    //   }
+
+    // }
+
+    public void PickUpFinishedOrder(Plate plate)
     {
-      // TODO Replace with realy
-      bool done = OrderCheck(new Order(), new Order());
-
-      // Goto next order
-      if (done)
-      {
         current = new Order();
-        final = orders.Dequeue();
-        Recipe(current);
-      }
 
+        while(plate.items.Count > 0)
+        {
+          var ingredient = new Ingredient();
+          ingredient.itype = plate.items.Pop().type;
+          current.addIngredient(ingredient);
+        }
+
+        OnOrderCompleted.Invoke(final.IsSame(current));
     }
 
     public void handleStreamText(string message, string user)
@@ -112,24 +131,6 @@ namespace Assets
       return sb.ToString();
     }
 
-    bool OrderCheck(Order final, Order current)
-    {
-      final = sort(final);
-      current = sort(current);
-
-      // TODO Implement
-      /* final.ings.ITypes; */
-      return false;
-    }
-
-    Order sort(Order sortme)
-    {
-      //  List<Ingredient> SortedList = sortme.ings.OrderBy(o=>int(o)).ToList();
-      //  sortme.ings = SortedList;
-
-      return sortme;
-    }
-
     // Creates a random order and adds to queue
     void newOrder()
     {
@@ -140,10 +141,9 @@ namespace Assets
     void Recipe(Order final)
     {
       Debug.Log("Order Up:");
-      foreach (Ingredient ing in final.ings)
+      foreach (Ingredient ing in final.ingredients)
       {
         Debug.Log("Ingredient: " + ing.itype.ToString());
       }
     }
   }
-}

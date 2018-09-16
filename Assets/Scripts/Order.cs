@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections;
-  using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace Assets
-{
-  public class Order {
-    public const int MAX_INGS = 6;
-    public const int MIN_INGS = 3;
+  public class Order
+  {
+    public const int MAX_INGREDIENTS = 6;
+    public const int MIN_INGREDIENTS = 3;
 
 
-    public List<Ingredient> ings;
+    public List<Ingredient> ingredients;
     public Ingredient bread;
     public String label = "";
     public String description = "";
@@ -67,7 +66,7 @@ namespace Assets
           subtract = true;
         }
       }
-      if (baseOrder.ings.Count > 0)
+      if (baseOrder.ingredients.Count > 0)
       {
         return baseOrder;
       }
@@ -80,11 +79,11 @@ namespace Assets
     {
       if (random)
       {
-        ings = new List<Ingredient>();
+        ingredients = new List<Ingredient>();
 
-        for (int i = 0; i < MAX_INGS; i++)
+        for (int i = 0; i < MAX_INGREDIENTS; i++)
         {
-          ings.Add(new Ingredient(true));
+          ingredients.Add(new Ingredient(true));
         }
 
       }
@@ -96,12 +95,12 @@ namespace Assets
     }
      public Order()
      {
-       ings = new List<Ingredient>();
+       ingredients = new List<Ingredient>();
      }
 
         public void addIngredient(Ingredient ingr)
         {
-          ings.Add(ingr);
+          ingredients.Add(ingr);
         }
 
         /// <summary>
@@ -110,7 +109,7 @@ namespace Assets
         /// <param name="ingr"></param>
         public void removeIngredient(Ingredient ingr)
         {
-          ings.RemoveAll(x => x.itype == ingr.itype);
+          ingredients.RemoveAll(x => x.itype == ingr.itype);
         }
 
         public Order setLabel(String label)
@@ -119,16 +118,46 @@ namespace Assets
           return this;
         }
 
-        public Order setUser(String user)
+  public Order setUser(String user)
+  {
+    this.user = user;
+    return this;
+  }
+
+  public Order setDescription(String description)
+  {
+    this.description = description;
+    return this;
+  }
+
+  public bool IsSame(Order other)
         {
-          this.user = user;
-          return this;
+          if(other == null)
+          {
+            return false;
+          }
+          
+          if(this.ingredients.Count != other.ingredients.Count)
+          {
+            return false;
+          }
+
+          other.ingredients.Sort();
+          this.ingredients.Sort();
+
+          for(int i = 0; i < other.ingredients.Count; i++){
+            if (other.ingredients[i].itype != this.ingredients[i].itype){
+              return false;
+            }
+          }
+
+          return true;
         }
 
     public override string ToString()
     {
       String ingredients = "";
-      foreach(Ingredient ingr in ings)
+      foreach(Ingredient ingr in this.ingredients)
       {
         ingredients += ingr.ToString() + " ";
       }
@@ -139,7 +168,7 @@ namespace Assets
     {
       StringBuilder sb = new StringBuilder();
       Dictionary<Ingredient.ITypes, int> ingredients = new Dictionary<Ingredient.ITypes, int>();
-      foreach (Ingredient ingr in ings)
+      foreach (Ingredient ingr in this.ingredients)
       {
         if (!ingredients.ContainsKey(ingr.itype))
           ingredients.Add(ingr.itype, 0);
@@ -163,7 +192,10 @@ namespace Assets
       return sb.ToString();
     }
 
-  }
-
+    // public List<Ingredient> Sort(List<Ingredient> list){
+    //   for(int i = 0; i < list.Count; i++){
+    //     //if (list.Sort)
+    //   }
+    // }
 
   }

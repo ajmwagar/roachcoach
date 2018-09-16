@@ -79,7 +79,7 @@ public class TwitchChatExample : MonoBehaviour
 
   private void Update()
   {
-    if(Time.time - lastPingTime > 60)
+    if(Time.time - lastPingTime > 120)
     {
       IRC.SendMsg(helpMessage);
       lastPingTime = Time.time;

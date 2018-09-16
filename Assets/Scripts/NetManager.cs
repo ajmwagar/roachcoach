@@ -34,6 +34,18 @@ public class NetManager : NetworkManager
 
         GameObject player = (GameObject)Instantiate(spawnPrefab, startPos, Quaternion.identity);
 
+        if(playerType == 1)
+        {
+            var mouse = player.GetComponent<Mouse>();
+            mouse.playerName = message.playerName;
+            mouse.playerColor = message.playerColor;
+        }
+        else
+        {
+            spawnPrefab = mousePrefab;
+            startPos = new Vector3(-2,2,-2);
+        }
+
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
     }
 
@@ -42,6 +54,8 @@ public class NetManager : NetworkManager
         NetworkMessage netMessage = new NetworkMessage();
 
         netMessage.playerType = GameManager.playerType == PlayerType.Chef  ? 0 : 1;
+        netMessage.playerName = GameManager.playerName;
+        netMessage.playerColor = GameManager.playerColor;
  
         ClientScene.AddPlayer(conn, 0, netMessage);
     }
@@ -50,10 +64,16 @@ public class NetManager : NetworkManager
     {
         //base.OnClientSceneChanged(conn);
     }
+
+    public void RegisterPrefab(GameObject prefab)
+    {
+        ClientScene.RegisterPrefab(prefab);
+    }
 }
 
 public class NetworkMessage : MessageBase 
 {
     public string playerName;
     public int playerType;
+    public Color playerColor;
 }

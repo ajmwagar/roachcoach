@@ -11,10 +11,10 @@ namespace Assets.Scripts.TemplateOrders
     public HLTOrder()
     {
       label = "HLT";
-      ings = new List<Ingredient>();
-      ings.Add(new Ingredient(Ingredient.ITypes.HAM));
-      ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
-      ings.Add(new Ingredient(Ingredient.ITypes.TOMATO));
+      ingredients = new List<Ingredient>();
+      ingredients.Add(new Ingredient(Ingredient.ITypes.HAM));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.TOMATO));
       bread = new Ingredient(Ingredient.ITypes.WHITEBREAD);
     }
   }

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-namespace Assets
-{
   public class Ingredient
   {
     public enum ITypes
@@ -80,4 +78,3 @@ namespace Assets
         return this.itype.ToString();
     }
   }
-}
