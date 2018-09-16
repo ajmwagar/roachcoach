@@ -352,7 +352,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &16365570
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3266,7 +3266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1349562973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3355,6 +3355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe314f4efc45704da4ae06ab4158159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseDefaultHUD: 0
   SetChefBtn: {fileID: 543182392}
   SetMouseBtn: {fileID: 1227154865}
   JoinGamePanel: {fileID: 21032439}
@@ -4104,7 +4105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1828133550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4210,7 +4211,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1828133549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 227461547, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 

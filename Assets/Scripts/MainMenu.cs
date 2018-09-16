@@ -7,6 +7,8 @@ using System;
 
 public class MainMenu : MonoBehaviour 
 {
+	[SerializeField]
+	private bool UseDefaultHUD = false;
 
 	[SerializeField]
 	private Button SetChefBtn;
@@ -55,7 +57,7 @@ public class MainMenu : MonoBehaviour
 	{
 		GameManager.playerType = PlayerType.Chef;
 
-		hud.SetActive(true);
+		hud.SetActive(UseDefaultHUD);
 		SetJoinGamePanel();
 	}
 
@@ -63,7 +65,7 @@ public class MainMenu : MonoBehaviour
 	{
 		GameManager.playerType = PlayerType.Mouse;
 
-		hud.SetActive(true);
+		hud.SetActive(UseDefaultHUD);
 		SetJoinGamePanel();
 	}
 
