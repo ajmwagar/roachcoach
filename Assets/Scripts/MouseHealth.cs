@@ -27,7 +27,7 @@ public class MouseHealth : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
 
-        Debug.Log("mouse hit mag" + collision.relativeVelocity.magnitude);
+        //Debug.Log("mouse hit mag" + collision.relativeVelocity.magnitude);
 
         if (collision.relativeVelocity.magnitude > smashThreshold && collision.gameObject.CompareTag("Mallet"))
         {
