@@ -64,6 +64,11 @@ public class NetManager : NetworkManager
     {
         //base.OnClientSceneChanged(conn);
     }
+
+    public void RegisterPrefab(GameObject prefab)
+    {
+        ClientScene.RegisterPrefab(prefab);
+    }
 }
 
 public class NetworkMessage : MessageBase 
