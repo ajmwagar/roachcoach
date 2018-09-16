@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -8,29 +9,83 @@ public class ItemPickUp : NetworkBehaviour
 
     private new Rigidbody rigidbody;
 
+    private Transform heldBy;
+
+    private PlayerType heldByType;
+
+    private Vector3 prevPos;
+    private Vector3 curPos;
+
+    private Vector3 curVelocity;
+
     private void Start()
     {
-        DisableClientScripts();
+
+        heldByType = PlayerType.None;
 
         rigidbody = GetComponent<Rigidbody>();
+
+        curPos = rigidbody.transform.position;
+
+        curVelocity = Vector3.zero;
+
     }
 
-    private void DisableClientScripts()
+    private void FixedUpdate()
     {
-        if (isServer == false)
+
+        prevPos = curPos;
+        curPos = rigidbody.transform.position;
+
+        Vector3 velocity = (curPos - prevPos) / Time.deltaTime;
+
+        curVelocity = (velocity + curVelocity) / 2;
+    }
+
+    public void Update()
+    {
+        if(heldByType != PlayerType.None)
         {
-            var collider = GetComponent<SphereCollider>();
-
-            if (collider == null)
-            {
-                Debug.LogWarning("No collider found on item:+ " + gameObject.name);
-                return;
-            }
-
-            //collider.enabled = false;
+            gameObject.transform.position = heldBy.position;
+            gameObject.transform.rotation = heldBy.rotation;
         }
     }
 
+
+
+    public void HeldBy(Transform holding, PlayerType ptype)
+    {
+        //Can't grab if already help by another player of the same type
+        if (ptype != heldByType)
+        {
+            heldBy = holding;
+            heldByType = ptype;
+            rigidbody.isKinematic = true;
+        }
+    }
+
+    /*
+    public void HeldBy(FixedJoint joint, PlayerType ptype)
+    {
+        //Can't grab if already help by another player of the same type
+        if (ptype != heldByType)
+        {
+            joint.connectedBody = rigidbody;
+            heldByType = ptype;
+            rigidbody.isKinematic = false;
+        }
+    }
+    */
+
+    public void Drop()
+    {
+        heldBy = null;
+        heldByType = PlayerType.None;
+        rigidbody.isKinematic = false;
+        rigidbody.velocity = curVelocity;
+    }
+
+    /*
     //void OnTriggerEnter(Collider other)
     void OnCollisionEnter(Collision other)
     {
@@ -57,4 +112,5 @@ public class ItemPickUp : NetworkBehaviour
 
         rigidbody.isKinematic = true;
     }
+    */
 }
