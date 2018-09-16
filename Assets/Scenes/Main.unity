@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 16365570}
   - component: {fileID: 16365569}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ConnectingMessageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1554,6 +1554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   errorMessageText: {fileID: 791010220}
+  connectingMessage: {fileID: 16365569}
   chefPanel: {fileID: 1842673604}
   chefNameInputField: {fileID: 2796296}
   HostBtn: {fileID: 1246389409}
@@ -1760,7 +1761,7 @@ GameObject:
   - component: {fileID: 791010221}
   - component: {fileID: 791010220}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ErrorMessageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1858,7 +1859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.4}
   m_AnchorMax: {x: 0.8, y: 0.55}
-  m_AnchoredPosition: {x: 0, y: 0.0000038146973}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &820535474
@@ -3265,7 +3266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1349562973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4103,7 +4104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1828133550
 MonoBehaviour:
   m_ObjectHideFlags: 0

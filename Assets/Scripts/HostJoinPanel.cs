@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Net;
+using UnityEngine.Networking;
 
 public class HostJoinPanel : MonoBehaviour 
 {
@@ -70,6 +71,8 @@ public class HostJoinPanel : MonoBehaviour
 	private void HostGame()
 	{
 		errorMessageText.text = "";
+		connectingMessage.text = "Creating game...";
+
 		if(netManager == null)
 		{
 			netManager = GameObject.FindObjectOfType<NetManager>();
@@ -79,13 +82,14 @@ public class HostJoinPanel : MonoBehaviour
 		if(string.IsNullOrEmpty(GameManager.playerName))
 		{
 			errorMessageText.text = "please enter a player name";
+			connectingMessage.text = "";
 			return;
 		}
 
-		//netManager.networkAddress = ipAddressInputField.text;
+		StartCoroutine(WaitForHostStatus());
 		netManager.StartHost();
 	}
-	
+
 	private void ColorBtnHandler()
 	{
 		if(playerColors == null)
@@ -143,7 +147,54 @@ public class HostJoinPanel : MonoBehaviour
 			return;
 		}
 
+
+		StartCoroutine(WaitForClientConnectStatus());
 		netManager.networkAddress = ipAddressInputField.text;
 		netManager.StartClient();
+	}
+
+	
+	IEnumerator WaitForHostStatus()
+	{
+		yield return new WaitForEndOfFrame();
+
+		while(netManager.IsInvoking("StartHost"))
+		{
+			Debug.Log("Connecting...");
+			yield return new WaitForEndOfFrame();
+		}
+
+		if(NetworkServer.active)
+		{
+			connectingMessage.text =  "connected!";
+			errorMessageText.text = "";
+		}
+		else 
+		{
+			errorMessageText.text = "Failed to host game... :(";
+			connectingMessage.text = "";
+		}
+	}
+
+	IEnumerator WaitForClientConnectStatus()
+	{
+		yield return new WaitForEndOfFrame();
+
+		while(netManager.IsInvoking("StartClient"))
+		{
+			Debug.Log("Connecting...");
+			yield return new WaitForEndOfFrame();
+		}
+
+		if(NetworkServer.active)
+		{
+			connectingMessage.text =  "connected!";
+			errorMessageText.text = "";
+		}
+		else 
+		{
+			errorMessageText.text = "Failed to connect to host... :(";
+			connectingMessage.text = "";
+		}
 	}
 }
