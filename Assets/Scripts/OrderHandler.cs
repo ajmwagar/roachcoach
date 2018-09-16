@@ -63,7 +63,7 @@ public class OrderHandler : MonoBehaviour
 
         if (final == null)
         {
-            final = orders.Dequeue();
+            //final = orders.Dequeue();
         }
     }
 

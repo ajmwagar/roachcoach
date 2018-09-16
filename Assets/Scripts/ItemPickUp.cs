@@ -48,7 +48,7 @@ public class ItemPickUp : NetworkBehaviour
 
     public void Update()
     {
-        if(heldByType != PlayerType.None)
+        if(heldByType != PlayerType.None && heldBy)
         {
             gameObject.transform.position = heldBy.position;
             gameObject.transform.rotation = heldBy.rotation;
@@ -68,6 +68,7 @@ public class ItemPickUp : NetworkBehaviour
             rigidbody.isKinematic = true;
             if (mouse)
             {
+                Debug.Log("Mouse Pickup");
                 GetComponentInChildren<Basic3DRBmovement>().enabled = false;
             }
         }
@@ -95,6 +96,7 @@ public class ItemPickUp : NetworkBehaviour
 
         if (mouse)
         {
+            Debug.Log("Mouse Drop");
             GetComponentInChildren<Basic3DRBmovement>().enabled = true;
         }
     }

@@ -84,10 +84,9 @@ public class ChefItemGrabber : MonoBehaviour
 
                 if (mouse)
                 {
+                    Debug.Log("drop mouse");
                     mouse.GetComponentInChildren<Basic3DRBmovement>().enabled = false;
                 }
-
-
             }
 
             //no item held
@@ -118,6 +117,7 @@ public class ChefItemGrabber : MonoBehaviour
                 var mouse = other.GetComponentInChildren<Mouse>();
                 if (mouse)
                 {
+                    Debug.Log("Mouse Pickup");
                     mouse.GetComponentInChildren<Basic3DRBmovement>().enabled = false;
                 }
             }

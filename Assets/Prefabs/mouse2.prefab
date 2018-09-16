@@ -704,7 +704,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087962247518092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.668, y: 1.206, z: -0.742}
+  m_LocalPosition: {x: 0.668, y: 0.096, z: -1.838}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4411026925323942}
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canClimb: 0
-  maxSpeed: 2
+  maxSpeed: 1
   maxRotationalSpeed: 40
   grounded: 0
   ground:
@@ -1432,7 +1432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e965f59bb425424db05299e5fe41bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smashThreshold: 0.6
+  smashThreshold: 0.3
 --- !u!114 &114875722629449238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPoint: {fileID: 4411026925323942}
+  holding: {fileID: 0}
 --- !u!135 &135464689913268692
 SphereCollider:
   m_ObjectHideFlags: 1
