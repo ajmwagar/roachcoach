@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Mouse : NetworkBehaviour {
+public class Mouse : NetworkBehaviour 
+{
+	[SyncVar]
+	public Color playerColor;
+	[SyncVar]
+	public string playerName;
 
 	void Start () 
 	{
