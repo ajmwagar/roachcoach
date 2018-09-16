@@ -5,7 +5,7 @@ using System;
 
 public class DeliveryArea : MonoBehaviour 
 {
-	public float pickupDeliveryTimeInSecs = 5;
+	public float pickupDeliveryTimeInSecs = 3;
 
 	public event Action OnOrderAdded = delegate { };
 	public event Action<Plate> OnPlatePickUp = delegate { }; 
@@ -27,6 +27,7 @@ public class DeliveryArea : MonoBehaviour
 				{
 					OnPlatePickUp.Invoke(key);
 					deliveryArea.Remove(key);
+
 				}
 			}
 		}

@@ -7,11 +7,15 @@ using UnityEngine;
 using System;
   public class OrderHandler : MonoBehaviour
   {
-    // Number of orders to hold in queue
-    public const int ORDER_NUM = 20;
+
+  public AudioClip goodSound;
+  public AudioClip badSound;
+  public AudioClip incomingOrder;
+
+  // Number of orders to hold in queue
+  public const int ORDER_NUM = 20;
 
     // Current and final orders
-    public Order current;
     public Order final;
     public TwitchIRC twithComm;
 
@@ -25,44 +29,48 @@ using System;
     // Use this for initialization
     void Start()
     {
-      for (int i = 0; i < ORDER_NUM; i++)
-      {
-        newOrder();
-      }
 
-      current = new Order();
-      final = orders.Dequeue();
-      foreach (Order o in orders)
-      {
-        Recipe(o);
-      }
+    if (final == null)
+    {
+      gotoNextOrder();
+    }
 
       deliveryArea = GameObject.FindObjectOfType<DeliveryArea>();
 		  deliveryArea.OnPlatePickUp += ValidateOrder;
 
     }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //   // TODO Replace with realy
-    //   bool done = final.IsSame(current); //OrderCheck(new Order(), new Order());
+  // Update is called once per frame
+  // void Update()
+  // {
+  //   // TODO Replace with realy
+  //   bool done = final.IsSame(current); //OrderCheck(new Order(), new Order());
 
-    //   // Goto next order
-    //   if (done)
-    //   {
-    //     current = new Order();
-    //     final = orders.Dequeue();
-    //     Recipe(current);
-    //   }
+  //   // Goto next order
+  //   if (done)
+  //   {
+  //     current = new Order();
+  //     final = orders.Dequeue();
+  //     Recipe(current);
+  //   }
 
-    // }
+  // }
 
-    public void ValidateOrder(Plate plate)
+  void Update()
+  {
+    
+    if(final == null)
     {
-        current = new Order();
+      final = orders.Dequeue();
+    }
+  }
 
-        while(plate.items.Count > 0)
+  public void ValidateOrder(Plate plate)
+    {
+       Order current = new Order();
+       AudioSource aSource = gameObject.GetComponent<AudioSource>();
+  
+    while (plate.items.Count > 0)
         {
           var ingredient = new Ingredient();
           ingredient.itype = plate.items.Pop().type;
@@ -70,9 +78,29 @@ using System;
         }
 
         OnOrderCompleted.Invoke(final.IsSame(current));
+    if (final.IsSame(current))
+    {
+      //Play Good Sound
+      aSource.PlayOneShot(goodSound);
+      gotoNextOrder();
     }
+    else
+    {
+      //PLay Bad Sounf
+      aSource.PlayOneShot(badSound);
+    }
+    plate.reset();
+  }
 
-    public void handleStreamText(string message, string user)
+  public void gotoNextOrder()
+  {
+    if(orders != null && orders.Count > 0)
+    {
+      final = orders.Dequeue();
+    }
+  }
+
+  public void handleStreamText(string message, string user)
     {
       Boolean customOrder = false;
       Order order = OrderFactory.Create(message);
