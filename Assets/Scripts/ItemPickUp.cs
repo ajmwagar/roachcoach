@@ -61,7 +61,7 @@ public class ItemPickUp : NetworkBehaviour
     {
         //Can't grab if already help by another player of the same type
         //Also, mouse can't pick up another mouse
-        if (ptype != heldByType && !(mouse && ptype == PlayerType.Mouse))
+        if (ptype != heldByType && !(mouse && ptype == PlayerType.Mouse) && !(ptype == PlayerType.Mouse && gameObject.CompareTag("Plate")))
         {
             heldBy = holding;
             heldByType = ptype;
