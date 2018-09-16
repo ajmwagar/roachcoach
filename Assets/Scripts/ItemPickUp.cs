@@ -18,6 +18,8 @@ public class ItemPickUp : NetworkBehaviour
 
     private Vector3 curVelocity;
 
+    private Mouse mouse; 
+
     private void Start()
     {
 
@@ -28,6 +30,8 @@ public class ItemPickUp : NetworkBehaviour
         curPos = rigidbody.transform.position;
 
         curVelocity = Vector3.zero;
+
+        mouse = GetComponent<Mouse>();
 
     }
 
@@ -56,11 +60,16 @@ public class ItemPickUp : NetworkBehaviour
     public void HeldBy(Transform holding, PlayerType ptype)
     {
         //Can't grab if already help by another player of the same type
-        if (ptype != heldByType)
+        //Also, mouse can't pick up another mouse
+        if (ptype != heldByType && !(mouse && ptype == PlayerType.Mouse))
         {
             heldBy = holding;
             heldByType = ptype;
             rigidbody.isKinematic = true;
+            if (mouse)
+            {
+                GetComponentInChildren<Basic3DRBmovement>().enabled = false;
+            }
         }
     }
 
@@ -83,6 +92,11 @@ public class ItemPickUp : NetworkBehaviour
         heldByType = PlayerType.None;
         rigidbody.isKinematic = false;
         rigidbody.velocity = curVelocity;
+
+        if (mouse)
+        {
+            GetComponentInChildren<Basic3DRBmovement>().enabled = true;
+        }
     }
 
     /*
