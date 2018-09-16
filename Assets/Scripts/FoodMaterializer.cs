@@ -23,9 +23,13 @@ public class FoodMaterializer : MonoBehaviour {
 		var obj = Instantiate(prefab, materializePoint.position, materializePoint.rotation);
 
 		var item = obj.GetComponent<IngredientItem>();
-		item.type = type;
+        if (item)
+        {
+            item.type = type;
 
-		NetworkServer.Spawn(obj);
+            NetworkServer.Spawn(obj);
+        }
+
 	}
 
 }
