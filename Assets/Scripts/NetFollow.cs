@@ -57,18 +57,28 @@ public class NetFollow : NetworkBehaviour {
     {
         
 		if (hasAuthority && src_head && src_lHand && src_rHand) {
-			head.position = src_head.position;
-			head.rotation = src_head.rotation;
+            if (src_head)
+            {
+                head.position = src_head.position;
+                head.rotation = src_head.rotation;
+            }
 
-			lHand.position = src_lHand.position;
-			lHand.rotation = src_lHand.rotation;
+            if (src_lHand)
+            {
+                lHand.position = src_lHand.position;
+                lHand.rotation = src_lHand.rotation;
+            }
 
-			rHand.position = src_rHand.position;
-			rHand.rotation = src_rHand.rotation;
+            if (src_rHand)
+            {
+                rHand.position = src_rHand.position;
+                rHand.rotation = src_rHand.rotation;
+            }
+			
 
-            body.position = head.position;
-			body.rotation = Quaternion.Euler(Vector3.Scale(src_body.rotation.eulerAngles,bodyRotationMask));
-            body.localScale = new Vector3(body.localScale.x, body.transform.position.y / 1.5f, body.localScale.z);
+            //body.position = head.position;
+			//body.rotation = Quaternion.Euler(Vector3.Scale(src_body.rotation.eulerAngles,bodyRotationMask));
+            //body.localScale = new Vector3(body.localScale.x, body.transform.position.y / 1.5f, body.localScale.z);
 		}
     }
 
