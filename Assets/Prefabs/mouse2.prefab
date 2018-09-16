@@ -704,7 +704,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087962247518092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.668, y: 1.206, z: -0.742}
+  m_LocalPosition: {x: 0.668, y: 1.206, z: -2.95}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4411026925323942}
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPoint: {fileID: 4411026925323942}
+  holding: {fileID: 0}
 --- !u!135 &135464689913268692
 SphereCollider:
   m_ObjectHideFlags: 1
