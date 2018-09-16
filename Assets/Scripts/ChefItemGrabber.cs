@@ -8,20 +8,92 @@ public class ChefItemGrabber : MonoBehaviour
     public Transform attachPoint;
     PlayerType playerType = PlayerType.Chef;
 
-    private void Start()
+    public bool triggerButtonDown = false;
+    public bool triggerButtonUp = false;
+    public bool triggerButtonHeld = false;
+
+    private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
+
+    
+
+    public ItemPickUp itemHeld;
+
+    private SteamVR_Controller.Device controller
     {
+
+        get
+        {
+            return SteamVR_Controller.Input((int)trackedObj.index);
+
+        }
 
     }
 
-    void OnTriggerEnter(Collider other)
-    //void OnCollisionEnter(Collision other)
+    private SteamVR_TrackedObject trackedObj;
+
+    void Start()
     {
 
-        ItemPickUp item = other.GetComponent<ItemPickUp>();
-        if (item)
+        trackedObj = GetComponent<SteamVR_TrackedObject>();
+
+    }
+
+    void Update()
+    {
+
+        if (controller == null)
         {
-            item.HeldBy(attachPoint, playerType);
+
+            Debug.Log("Controller not initialized");
+
+            return;
+
         }
+
+        triggerButtonHeld = controller.GetPress(triggerButton);
+        triggerButtonUp = controller.GetPressUp(triggerButton);
+        triggerButtonDown = controller.GetPressDown(triggerButton);
+
+        if (triggerButtonDown)
+        {
+            Debug.Log("down");
+        }
+
+        if (triggerButtonUp)
+        {
+            Debug.Log("Up");
+        }
+
+        if (triggerButtonUp && itemHeld)
+        {
+            //drop item
+            itemHeld.Drop();
+
+            //no item held
+            itemHeld = null;
+        }
+
+    }
+
+
+    void OnTriggerStay(Collider other)
+    //void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("touch");
+
+        ItemPickUp item = other.GetComponentInParent<ItemPickUp>();
+        if (item && triggerButtonDown)
+        {
+            Debug.Log("grabbed");
+            item.HeldBy(attachPoint, playerType);
+            itemHeld = item;
+        }
+    }
+
+    void OnTriggerEntered(Collider other)
+    //void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("touch enter");
 
 
     }

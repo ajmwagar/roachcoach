@@ -489,6 +489,7 @@ MonoBehaviour:
   - {fileID: 1048682765959216, guid: 925e72c3d7a29f546addd7720c6ac28c, type: 2}
   - {fileID: 1729237014947712, guid: 2a6783b5c8a2f4e4d8d579257b313be8, type: 2}
   - {fileID: 1237074630407878, guid: 702120d2605d712469a8113c3b675558, type: 2}
+  - {fileID: 1087962247518092, guid: 7bc3371471802ab4c99a80202561da5d, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -545,7 +546,7 @@ MonoBehaviour:
   isNetworkActive: 0
   matchMaker: {fileID: 0}
   chefPrefab: {fileID: 1237074630407878, guid: 702120d2605d712469a8113c3b675558, type: 2}
-  mousePrefab: {fileID: 1729237014947712, guid: 2a6783b5c8a2f4e4d8d579257b313be8,
+  mousePrefab: {fileID: 1087962247518092, guid: 7bc3371471802ab4c99a80202561da5d,
     type: 2}
 --- !u!4 &1828133551
 Transform:

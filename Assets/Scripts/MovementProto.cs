@@ -31,7 +31,6 @@ public class MovementProto : MonoBehaviour
         {
             anim.SetFloat("Speed", z*100);
         }
-
 		
 	}
 }
