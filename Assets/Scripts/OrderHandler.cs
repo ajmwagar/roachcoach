@@ -38,7 +38,7 @@ using System;
       }
 
       deliveryArea = GameObject.FindObjectOfType<DeliveryArea>();
-		  deliveryArea.OnPlatePickUp += validateOrder;
+		  deliveryArea.OnPlatePickUp += ValidateOrder;
 
     }
 
