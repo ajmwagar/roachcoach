@@ -1,72 +1,14 @@
 fileFormatVersion: 2
-guid: 200e25da455cb3044aaed36f4ceeed37
+guid: b7e0723aa53784748af1ebde442ed0a9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Armature
-    100002: Base
-    100004: //RootNode
-    100006: Hand
-    100008: Index.000
-    100010: Index.001
-    100012: Index.002
-    100014: Index.002_end
-    100016: Mid.000
-    100018: Mid.001
-    100020: Mid.002
-    100022: Mid.002_end
-    100024: Palm
-    100026: Pinky.000
-    100028: Pinky.001
-    100030: Pinky.002
-    100032: Pinky.002_end
-    100034: Ring.000
-    100036: Ring.001
-    100038: Ring.002
-    100040: Ring.002_end
-    100042: Thumb.000
-    100044: Thumb.001
-    100046: Thumb.002
-    100048: Thumb.002_end
-    400000: Armature
-    400002: Base
-    400004: //RootNode
-    400006: Hand
-    400008: Index.000
-    400010: Index.001
-    400012: Index.002
-    400014: Index.002_end
-    400016: Mid.000
-    400018: Mid.001
-    400020: Mid.002
-    400022: Mid.002_end
-    400024: Palm
-    400026: Pinky.000
-    400028: Pinky.001
-    400030: Pinky.002
-    400032: Pinky.002_end
-    400034: Ring.000
-    400036: Ring.001
-    400038: Ring.002
-    400040: Ring.002_end
-    400042: Thumb.000
-    400044: Thumb.001
-    400046: Thumb.002
-    400048: Thumb.002_end
-    2100000: GloveMat
-    4300000: Hand
-    7400000: Idle
-    7400002: Grab
-    7400004: Grip
-    7400006: Release
-    7400008: Hold
-    7400010: Armature|Grab
-    7400012: Armature|Grip
-    7400014: Armature|Hold
-    7400016: Armature|Idle
-    7400018: Armature|Release
-    9500000: //RootNode
-    13700000: Hand
+    100000: //RootNode
+    400000: //RootNode
+    2100000: TrayMat
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: TeleTray
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -118,8 +60,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -144,7 +86,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

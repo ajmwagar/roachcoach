@@ -10,8 +10,12 @@ public class Mouse : NetworkBehaviour
 	[SyncVar]
 	public string playerName;
 
+	public SkinnedMeshRenderer mesh; 
+
 	void Start () 
 	{
+		mesh.material.color = playerColor;
+		
 		if(!isLocalPlayer)
 		{
 			GetComponent<MovementProto>().enabled = false;

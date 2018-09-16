@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ChefItemGrabber : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class ChefItemGrabber : MonoBehaviour
 
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
 
+	private Animator anim;
     
 
     public ItemPickUp itemHeld;
@@ -57,11 +59,13 @@ public class ChefItemGrabber : MonoBehaviour
         if (triggerButtonDown)
         {
             Debug.Log("down");
+			SetAnimationState ("Grab", true);
         }
 
         if (triggerButtonUp)
         {
             Debug.Log("Up");
+			SetAnimationState ("Grab", false);
         }
 
         if (triggerButtonUp && itemHeld)
@@ -72,8 +76,18 @@ public class ChefItemGrabber : MonoBehaviour
             FixedJoint joint = GetComponent<FixedJoint>();
             if (joint && joint.connectedBody)
             {
+                //if dropping mouse enable controls
+                var mouse = joint.connectedBody.GetComponentInChildren<Mouse>();
+
                 Debug.Log("Joint Disconnected");
                 joint.connectedBody = null;
+
+                if (mouse)
+                {
+                    mouse.GetComponentInChildren<Basic3DRBmovement>().enabled = false;
+                }
+
+
             }
 
             //no item held
@@ -99,6 +113,13 @@ public class ChefItemGrabber : MonoBehaviour
             {
                 Debug.Log("JointConnected");
                 joint.connectedBody = other.attachedRigidbody;
+
+                //if picking up mouse disable mouse controls
+                var mouse = other.GetComponentInChildren<Mouse>();
+                if (mouse)
+                {
+                    mouse.GetComponentInChildren<Basic3DRBmovement>().enabled = false;
+                }
             }
             
             itemHeld = item;
@@ -109,7 +130,22 @@ public class ChefItemGrabber : MonoBehaviour
     //void OnCollisionEnter(Collision other)
     {
         Debug.Log("touch enter");
-
-
     }
+
+	public void SetAnimator(Animator anim)
+	{
+		this.anim = anim;
+	}
+
+	private void SetAnimationState(string name, bool state)
+	{
+		if (anim == null)
+		{
+			Debug.LogWarning ("no animator set on : " + gameObject.name);
+			return;
+		}
+
+
+		anim.SetBool (name, state);
+	}
 }
