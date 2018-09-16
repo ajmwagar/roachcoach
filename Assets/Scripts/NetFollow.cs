@@ -16,6 +16,9 @@ public class NetFollow : NetworkBehaviour {
 
     public Transform body;
 
+	public Animator LeftHand;
+	public Animator RightHand;
+
     //private GloveController gloveController;
 
     private Vector3 bodyRotationMask = new Vector3(0,1,0);
@@ -98,6 +101,12 @@ public class NetFollow : NetworkBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
+		var itemGrabber = src_lHand.GetComponentInChildren<ChefItemGrabber> ();
+		if (itemGrabber == null) 
+		{
+			itemGrabber.SetAnimator (LeftHand);
+		}
+			
         //gloveController.SetLeftController(src_lHand.GetComponent<Valve.VR.InteractionSystem.Hand>());
     }
 
@@ -119,6 +128,12 @@ public class NetFollow : NetworkBehaviour {
 
             yield return new WaitForEndOfFrame();
         }
+
+		var itemGrabber = src_rHand.GetComponentInChildren<ChefItemGrabber> ();
+		if (itemGrabber == null) 
+		{
+			itemGrabber.SetAnimator (RightHand);
+		}
 
         //gloveController.SetRightController(src_rHand.GetComponent<Valve.VR.InteractionSystem.Hand>());
     }
