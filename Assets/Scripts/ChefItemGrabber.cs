@@ -72,8 +72,18 @@ public class ChefItemGrabber : MonoBehaviour
             FixedJoint joint = GetComponent<FixedJoint>();
             if (joint && joint.connectedBody)
             {
+                //if dropping mouse enable controls
+                var mouse = joint.connectedBody.GetComponentInChildren<Mouse>();
+
                 Debug.Log("Joint Disconnected");
                 joint.connectedBody = null;
+
+                if (mouse)
+                {
+                    mouse.GetComponentInChildren<Basic3DRBmovement>().enabled = false;
+                }
+
+
             }
 
             //no item held
@@ -99,6 +109,13 @@ public class ChefItemGrabber : MonoBehaviour
             {
                 Debug.Log("JointConnected");
                 joint.connectedBody = other.attachedRigidbody;
+
+                //if picking up mouse disable mouse controls
+                var mouse = other.GetComponentInChildren<Mouse>();
+                if (mouse)
+                {
+                    mouse.GetComponentInChildren<Basic3DRBmovement>().enabled = false;
+                }
             }
             
             itemHeld = item;
