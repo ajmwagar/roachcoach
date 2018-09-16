@@ -61,9 +61,9 @@ public class OrderHandler : MonoBehaviour
     void Update()
     {
 
-        if (final == null)
+        if (final == null && orders != null && orders.Count > 0)
         {
-            //final = orders.Dequeue();
+            gotoNextOrder();
         }
     }
 
@@ -127,6 +127,7 @@ public class OrderHandler : MonoBehaviour
             {
                 twithComm.SendMsg(string.Format("You got it {0}, making that {1}", order.user, order.label));
             }
+           order.setDescription(message);
             orders.Enqueue(order);
             Debug.Log(order.ToString());
         }
