@@ -29,6 +29,7 @@ public class Plate : MonoBehaviour {
 
         public void reset()
         {
+          Debug.Log(this.ToString());
           transform.position = startLocation;
           transform.rotation = startRotation;
           foreach(IngredientItem item in items){
