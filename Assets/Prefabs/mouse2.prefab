@@ -1317,6 +1317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   playerName: 
+  mesh: {fileID: 137309633897704932}
 --- !u!114 &114104901337921166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1354,8 +1355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canClimb: 0
-  maxSpeed: 3
-  maxRotationalSpeed: 2
+  maxSpeed: 2
+  maxRotationalSpeed: 40
   grounded: 0
   ground:
     serializedVersion: 2
