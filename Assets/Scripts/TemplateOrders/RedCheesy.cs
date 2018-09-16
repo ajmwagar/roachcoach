@@ -9,6 +9,7 @@ namespace Assets.Scripts.TemplateOrders
   {
     public RedCheesyOrder()
     {
+      label = "Red N Cheesy";
       ings = new List<Ingredient>();
       ings.Add(new Ingredient(Ingredient.ITypes.TOMATO));
       ings.Add(new Ingredient(Ingredient.ITypes.CHEESE));

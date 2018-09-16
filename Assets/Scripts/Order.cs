@@ -14,6 +14,7 @@ namespace Assets
     public List<Ingredient> ings;
     public Ingredient bread;
     public String label = "";
+    public String description = "";
     public String user = "";
 
     public static Order convertStringToOrder(String orderString)
@@ -134,7 +135,7 @@ namespace Assets
       return JsonUtility.ToJson(this) + bread + ingredients;
     }
 
-    public String toPrettyString()
+    public String ToPrettyString()
     {
       StringBuilder sb = new StringBuilder();
       Dictionary<Ingredient.ITypes, int> ingredients = new Dictionary<Ingredient.ITypes, int>();

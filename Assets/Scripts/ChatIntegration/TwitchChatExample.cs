@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets;
 using System.Text.RegularExpressions;
+using System.Text;
 
 [RequireComponent(typeof(TwitchIRC))]
 public class TwitchChatExample : MonoBehaviour
@@ -12,6 +13,8 @@ public class TwitchChatExample : MonoBehaviour
     private LinkedList<GameObject> messages =
         new LinkedList<GameObject>();
     private TwitchIRC IRC;
+  private float lastPingTime;
+  private string helpMessage = "Welcome! Build your own sandwich or select one from the menu.  To order a sandwich just say somethng like \"Hey Roach, can i have the HLT with no tomatos?\" or \"Can i have a sandwich with tomatos, lettuce, and extra cheese on wheatbread? To see the menu, say something like \"Hey Roach, what's on the menu?\" to see the menu. To see all available ingredients say something like \"Hey Roach, what toppings do you have?\".";
     //when message is recieved from IRC-server or our own message.
     void OnChatMsgRecieved(string msg)
     {
@@ -23,15 +26,28 @@ public class TwitchChatExample : MonoBehaviour
 
     if (msgString.StartsWith("Hey Roach,", System.StringComparison.CurrentCultureIgnoreCase))
     {
-      Regex whatsOnMenuRegex = new Regex("hey roach, what.*menu.*", RegexOptions.IgnoreCase);
+      Regex whatsOnMenuRegex = new Regex("hey roach,.*menu.*", RegexOptions.IgnoreCase);
+
+      Regex whatAreIngredientsRegex = new Regex("hey roach,(.*ingredient.*|.*topping.*)", RegexOptions.IgnoreCase);
       //Whats on the menu
       if (whatsOnMenuRegex.IsMatch(msgString))
       {
         string menu = OrderHandler.whatsOnTheMenu();
-       /* foreach (String menuItem in menu.Split('\r\n'))
+        foreach (string menuItem in menu.Split('|'))
         {
           IRC.SendMsg(menuItem);
-        }*/
+        }
+      }else if (whatAreIngredientsRegex.IsMatch(msgString))
+      {
+        StringBuilder sb = new StringBuilder();
+        sb.Append("All available ingredients:");
+        foreach (string ingredient in System.Enum.GetValues(typeof (Ingredient.ITypes)))
+        {
+          sb.Append(' ');
+          sb.Append(ingredient);
+          sb.Append(',');
+        }
+        sb.Remove(sb.Length - 1, 1);
       }
 
       //Assume its an order
@@ -52,16 +68,21 @@ public class TwitchChatExample : MonoBehaviour
 
     }
  
-    Color ColorFromUsername(string username)
-    {
-        Random.seed = username.Length + (int)username[0] + (int)username[username.Length - 1];
-        return new Color(Random.Range(0.25f, 0.55f), Random.Range(0.20f, 0.55f), Random.Range(0.25f, 0.55f));
-    }
+
     // Use this for initialization
     void Start()
     {
         IRC = this.GetComponent<TwitchIRC>();
-        //IRC.SendCommand("CAP REQ :twitch.tv/tags"); //register for additional data such as emote-ids, name color etc.
         IRC.messageRecievedEvent.AddListener(OnChatMsgRecieved);
+        lastPingTime = Time.time;
     }
+
+  private void Update()
+  {
+    if(Time.time - lastPingTime > 60)
+    {
+      IRC.SendMsg(helpMessage);
+      lastPingTime = Time.time;
+    }
+  }
 }

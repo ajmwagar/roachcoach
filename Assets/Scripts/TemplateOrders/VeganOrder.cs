@@ -10,6 +10,7 @@ namespace Assets.Scripts.TemplateOrders
   {
     public VeganOrder()
     {
+      label = "The Vegan";
       ings = new List<Ingredient>();
       ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
       ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));

@@ -19,7 +19,20 @@ namespace Assets.Scripts.TemplateOrders
       return orders;
     }
 
-    public static Order Create(orderType type )
+    public static Order Create(String message)
+    {
+      String stringNorm = message.ToLower();
+      foreach(Order order in getAllPossibleOrders())
+      {
+        if (stringNorm.Contains(order.label.ToLower()))
+        {
+          return (Order) Activator.CreateInstance(order.GetType());
+        }
+      }
+      return new Order();
+    }
+
+    public static Order Create(orderType type)
     {
       switch (type)
       {
