@@ -64,6 +64,19 @@ public class ItemPickUp : NetworkBehaviour
         }
     }
 
+    /*
+    public void HeldBy(FixedJoint joint, PlayerType ptype)
+    {
+        //Can't grab if already help by another player of the same type
+        if (ptype != heldByType)
+        {
+            joint.connectedBody = rigidbody;
+            heldByType = ptype;
+            rigidbody.isKinematic = false;
+        }
+    }
+    */
+
     public void Drop()
     {
         heldBy = null;
