@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canClimb: 0
-  maxSpeed: 2
+  maxSpeed: 1
   maxRotationalSpeed: 40
   grounded: 0
   ground:
