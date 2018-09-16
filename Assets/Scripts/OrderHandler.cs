@@ -61,7 +61,7 @@ public class OrderHandler : MonoBehaviour
     void Update()
     {
 
-        if (final == null)
+        if (final == null && orders != null && orders.Count > 0)
         {
             //final = orders.Dequeue();
         }
