@@ -256,48 +256,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &543651911
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4126907242390760, guid: 702120d2605d712469a8113c3b675558, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4126907242390760, guid: 702120d2605d712469a8113c3b675558, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4126907242390760, guid: 702120d2605d712469a8113c3b675558, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4126907242390760, guid: 702120d2605d712469a8113c3b675558, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4126907242390760, guid: 702120d2605d712469a8113c3b675558, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4126907242390760, guid: 702120d2605d712469a8113c3b675558, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4126907242390760, guid: 702120d2605d712469a8113c3b675558, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4126907242390760, guid: 702120d2605d712469a8113c3b675558, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 702120d2605d712469a8113c3b675558, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &758359852
 Prefab:
   m_ObjectHideFlags: 0
@@ -546,7 +504,7 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 1048682765959216, guid: 925e72c3d7a29f546addd7720c6ac28c, type: 2}
   - {fileID: 1729237014947712, guid: 2a6783b5c8a2f4e4d8d579257b313be8, type: 2}
-  - {fileID: 1237074630407878, guid: 702120d2605d712469a8113c3b675558, type: 2}
+  - {fileID: 1660925718772870, guid: d88be0d8958f6b14eb3a97845c220088, type: 2}
   - {fileID: 1087962247518092, guid: 7bc3371471802ab4c99a80202561da5d, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -603,7 +561,7 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
-  chefPrefab: {fileID: 1237074630407878, guid: 702120d2605d712469a8113c3b675558, type: 2}
+  chefPrefab: {fileID: 1660925718772870, guid: d88be0d8958f6b14eb3a97845c220088, type: 2}
   mousePrefab: {fileID: 1087962247518092, guid: 7bc3371471802ab4c99a80202561da5d,
     type: 2}
 --- !u!4 &1828133551

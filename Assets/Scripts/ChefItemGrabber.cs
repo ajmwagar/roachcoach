@@ -134,7 +134,7 @@ public class ChefItemGrabber : MonoBehaviour
 
 	public void SetAnimator(Animator anim)
 	{
-		this.anim = anim;
+        this.anim = anim;
 	}
 
 	private void SetAnimationState(string name, bool state)

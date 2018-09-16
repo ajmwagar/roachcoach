@@ -102,9 +102,9 @@ public class NetFollow : NetworkBehaviour {
         }
 
 		var itemGrabber = src_lHand.GetComponentInChildren<ChefItemGrabber> ();
-		if (itemGrabber == null) 
+		if (itemGrabber != null) 
 		{
-			itemGrabber.SetAnimator (LeftHand);
+			itemGrabber.SetAnimator(LeftHand);
 		}
 			
         //gloveController.SetLeftController(src_lHand.GetComponent<Valve.VR.InteractionSystem.Hand>());
@@ -130,9 +130,9 @@ public class NetFollow : NetworkBehaviour {
         }
 
 		var itemGrabber = src_rHand.GetComponentInChildren<ChefItemGrabber> ();
-		if (itemGrabber == null) 
+		if (itemGrabber != null) 
 		{
-			itemGrabber.SetAnimator (RightHand);
+			itemGrabber.SetAnimator(RightHand);
 		}
 
         //gloveController.SetRightController(src_rHand.GetComponent<Valve.VR.InteractionSystem.Hand>());
