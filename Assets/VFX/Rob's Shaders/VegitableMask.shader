@@ -1,11 +1,10 @@
 // Shader created with Shader Forge v1.38 
 // Shader Forge (c) Freya Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:2,bsrc:3,bdst:7,dpts:2,wrdp:False,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:33007,y:32666,varname:node_2865,prsc:2|diff-6720-OUT,spec-358-OUT,gloss-1813-OUT,normal-5964-RGB,alpha-3400-R,disp-7736-RGB,tess-7736-A;n:type:ShaderForge.SFN_Multiply,id:6343,x:32114,y:32712,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31921,y:32805,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31921,y:32620,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:a5b36d6cf39c7824fbcd36622feefc5e,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32407,y:32978,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:358,x:32250,y:32780,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32250,y:32882,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.8,max:1;n:type:ShaderForge.SFN_Tex2d,id:3400,x:32505,y:33216,ptovrint:False,ptlb:Mask,ptin:_Mask,varname:node_3400,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:437ddbdc835616a49b33a8c0770a99b4,ntxv:0,isnm:False;n:type:ShaderForge.SFN_FaceSign,id:6113,x:32193,y:32463,varname:node_6113,prsc:2,fstp:0;n:type:ShaderForge.SFN_Multiply,id:6720,x:32552,y:32520,varname:node_6720,prsc:2|A-6113-VFACE,B-6343-OUT;proporder:5964-6665-7736-358-1813-3400;pass:END;sub:END;*/
+/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:2,bsrc:3,bdst:7,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:False,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:33007,y:32666,varname:node_2865,prsc:2|diff-6343-OUT,spec-358-OUT,gloss-1813-OUT,clip-3400-R,disp-7736-RGB,tess-7736-A;n:type:ShaderForge.SFN_Multiply,id:6343,x:32114,y:32712,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31921,y:32805,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31921,y:32620,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:a5b36d6cf39c7824fbcd36622feefc5e,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:358,x:32250,y:32780,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32250,y:32882,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.8,max:1;n:type:ShaderForge.SFN_Tex2d,id:3400,x:32505,y:33216,ptovrint:False,ptlb:Mask,ptin:_Mask,varname:node_3400,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:437ddbdc835616a49b33a8c0770a99b4,ntxv:0,isnm:False;n:type:ShaderForge.SFN_FaceSign,id:6113,x:32193,y:32463,varname:node_6113,prsc:2,fstp:0;n:type:ShaderForge.SFN_Multiply,id:6720,x:32549,y:32493,varname:node_6720,prsc:2|A-6113-VFACE,B-6343-OUT;proporder:6665-7736-358-1813-3400;pass:END;sub:END;*/
 
 Shader "Rob'sHandforgedShaders/VegitableMask" {
     Properties {
-        _BumpMap ("Normal Map", 2D) = "bump" {}
         _Color ("Color", Color) = (0.5019608,0.5019608,0.5019608,1)
         _MainTex ("Base Color", 2D) = "white" {}
         _Metallic ("Metallic", Range(0, 1)) = 0
@@ -26,7 +25,7 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
             }
             Blend SrcAlpha OneMinusSrcAlpha
             Cull Off
-            ZWrite Off
+            
             
             CGPROGRAM
             #pragma hull hull
@@ -49,7 +48,6 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
             #pragma target 5.0
             uniform float4 _Color;
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
-            uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
             uniform float _Metallic;
             uniform float _Gloss;
             uniform sampler2D _Mask; uniform float4 _Mask_ST;
@@ -176,10 +174,10 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
                 i.normalDir *= faceSign;
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.bitangentDir, i.normalDir);
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
-                float3 _BumpMap_var = UnpackNormal(tex2D(_BumpMap,TRANSFORM_TEX(i.uv0, _BumpMap)));
-                float3 normalLocal = _BumpMap_var.rgb;
-                float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
+                float3 normalDirection = i.normalDir;
                 float3 viewReflectDirection = reflect( -viewDirection, normalDirection );
+                float4 _Mask_var = tex2D(_Mask,TRANSFORM_TEX(i.uv0, _Mask));
+                clip(_Mask_var.r - 0.5);
                 float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
@@ -239,7 +237,8 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
                 float3 specularColor = _Metallic;
                 float specularMonochrome;
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 diffuseColor = (isFrontFace*(_MainTex_var.rgb*_Color.rgb)); // Need this for specular when using metallic
+                float3 node_6343 = (_MainTex_var.rgb*_Color.rgb);
+                float3 diffuseColor = node_6343; // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -279,8 +278,7 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse + specular;
-                float4 _Mask_var = tex2D(_Mask,TRANSFORM_TEX(i.uv0, _Mask));
-                fixed4 finalRGBA = fixed4(finalColor,_Mask_var.r);
+                fixed4 finalRGBA = fixed4(finalColor,1);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
                 return finalRGBA;
             }
@@ -293,7 +291,7 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
             }
             Blend One One
             Cull Off
-            ZWrite Off
+            
             
             CGPROGRAM
             #pragma hull hull
@@ -317,7 +315,6 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
             #pragma target 5.0
             uniform float4 _Color;
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
-            uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
             uniform float _Metallic;
             uniform float _Gloss;
             uniform sampler2D _Mask; uniform float4 _Mask_ST;
@@ -435,9 +432,9 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
                 i.normalDir *= faceSign;
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.bitangentDir, i.normalDir);
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
-                float3 _BumpMap_var = UnpackNormal(tex2D(_BumpMap,TRANSFORM_TEX(i.uv0, _BumpMap)));
-                float3 normalLocal = _BumpMap_var.rgb;
-                float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
+                float3 normalDirection = i.normalDir;
+                float4 _Mask_var = tex2D(_Mask,TRANSFORM_TEX(i.uv0, _Mask));
+                clip(_Mask_var.r - 0.5);
                 float3 lightDirection = normalize(lerp(_WorldSpaceLightPos0.xyz, _WorldSpaceLightPos0.xyz - i.posWorld.xyz,_WorldSpaceLightPos0.w));
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
@@ -457,7 +454,8 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
                 float3 specularColor = _Metallic;
                 float specularMonochrome;
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 diffuseColor = (isFrontFace*(_MainTex_var.rgb*_Color.rgb)); // Need this for specular when using metallic
+                float3 node_6343 = (_MainTex_var.rgb*_Color.rgb);
+                float3 diffuseColor = node_6343; // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -485,8 +483,7 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
                 float3 diffuse = directDiffuse * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse + specular;
-                float4 _Mask_var = tex2D(_Mask,TRANSFORM_TEX(i.uv0, _Mask));
-                fixed4 finalRGBA = fixed4(finalColor * _Mask_var.r,0);
+                fixed4 finalRGBA = fixed4(finalColor * 1,0);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
                 return finalRGBA;
             }
@@ -521,6 +518,7 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
             #pragma only_renderers d3d9 d3d11 glcore gles 
             #pragma target 5.0
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
+            uniform sampler2D _Mask; uniform float4 _Mask_ST;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -622,6 +620,8 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
                 float isFrontFace = ( facing >= 0 ? 1 : 0 );
                 float faceSign = ( facing >= 0 ? 1 : -1 );
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
+                float4 _Mask_var = tex2D(_Mask,TRANSFORM_TEX(i.uv0, _Mask));
+                clip(_Mask_var.r - 0.5);
                 SHADOW_CASTER_FRAGMENT(i)
             }
             ENDCG
@@ -764,7 +764,8 @@ Shader "Rob'sHandforgedShaders/VegitableMask" {
                 o.Emission = 0;
                 
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 diffColor = (isFrontFace*(_MainTex_var.rgb*_Color.rgb));
+                float3 node_6343 = (_MainTex_var.rgb*_Color.rgb);
+                float3 diffColor = node_6343;
                 float specularMonochrome;
                 float3 specColor;
                 diffColor = DiffuseAndSpecularFromMetallic( diffColor, _Metallic, specColor, specularMonochrome );
