@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     var netManager = GameObject.FindObjectOfType<NetManager>();
     netManager.RegisterPrefab(obj);
   }
-  void OnCollisionEnter(Collision col)
+  void OnTriggerEnter(Collider col)
   {
     onbuttonpress.Invoke(obj, type);
   }
