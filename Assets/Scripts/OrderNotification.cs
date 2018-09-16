@@ -23,7 +23,7 @@ public class OrderNotification : MonoBehaviour
 
     public void SetOrderNotification(Order order)
     {
-        UserAndLabel.text = "User: " + order.user + "\nLabel: " + order.label;
+        UserAndLabel.text = "User: " + order.user + " : " + order.label;
         Description.text = "Desription: " + order.description;
     }
 }
