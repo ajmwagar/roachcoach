@@ -29,7 +29,7 @@ namespace Assets.Scripts.TemplateOrders
           return (Order) Activator.CreateInstance(order.GetType());
         }
       }
-      return new Order();
+      return null;
     }
 
     public static Order Create(orderType type)
