@@ -69,6 +69,13 @@ public class ChefItemGrabber : MonoBehaviour
             //drop item
             itemHeld.Drop();
 
+            FixedJoint joint = GetComponent<FixedJoint>();
+            if (joint && joint.connectedBody)
+            {
+                Debug.Log("Joint Disconnected");
+                joint.connectedBody = null;
+            }
+
             //no item held
             itemHeld = null;
         }
@@ -85,7 +92,15 @@ public class ChefItemGrabber : MonoBehaviour
         if (item && triggerButtonDown)
         {
             Debug.Log("grabbed");
-            item.HeldBy(attachPoint, playerType);
+            //item.HeldBy(attachPoint, playerType);
+
+            FixedJoint joint = GetComponent<FixedJoint>();
+            if (joint)
+            {
+                Debug.Log("JointConnected");
+                joint.connectedBody = other.attachedRigidbody;
+            }
+            
             itemHeld = item;
         }
     }

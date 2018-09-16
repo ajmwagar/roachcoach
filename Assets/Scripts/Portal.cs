@@ -28,7 +28,7 @@ public class Portal : MonoBehaviour {
         var mouse = player.GetComponent<Mouse>();
         var mouseStatus = player.GetComponent<MouseTeleport>();
 
-        if (mouse && mouseStatus && !mouseStatus.isTeleporting)
+        if (mouse && mouse.isLocalPlayer && mouseStatus && !mouseStatus.isTeleporting)
         {
             mouseStatus.isTeleporting = true;
             inUse = true;
@@ -49,7 +49,7 @@ public class Portal : MonoBehaviour {
         var mouseStatus = player.GetComponent<MouseTeleport>();
         var exitStatus = exit.GetComponent<Portal>();
 
-        if (mouse && mouseStatus && mouseStatus.isTeleporting && exitStatus && exitStatus.inUse)
+        if (mouse && mouse.isLocalPlayer && mouseStatus && mouseStatus.isTeleporting && exitStatus && exitStatus.inUse)
         {
             mouseStatus.isTeleporting = false;
             exitStatus.inUse = false;

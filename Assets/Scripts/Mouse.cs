@@ -16,6 +16,7 @@ public class Mouse : NetworkBehaviour
 		{
 			GetComponent<MovementProto>().enabled = false;
 			GetComponent<Basic3DRBmovement>().enabled = false;
+            GetComponentInChildren<Camera>().gameObject.SetActive(false);
 			//GetComponent<climbzone>().enabled = false;
 		}
         if (!isServer)

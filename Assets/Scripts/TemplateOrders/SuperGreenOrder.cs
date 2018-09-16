@@ -9,14 +9,14 @@ namespace Assets.Scripts.TemplateOrders
   {
     public SuperGreenOrder()
     {
-      ings = new List<Ingredient>();
-      ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
-      ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
-      ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
-      ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
-      ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
-      ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
-      ings.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
+      ingredients = new List<Ingredient>();
+      ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
+      ingredients.Add(new Ingredient(Ingredient.ITypes.LETTUCE));
       bread = new Ingredient(Ingredient.ITypes.WHITEBREAD);
     }
 
