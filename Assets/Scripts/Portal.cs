@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
-    public Transform exit;
+    public GameObject exit;
     public GameObject pointer;
+    public bool inUse;
     
     // Use this for initialization
 	void Start () {
         pointer.SetActive(false);
+        bool inUse = false;
 	}
 	
 	// Update is called once per frame
@@ -21,6 +23,7 @@ public class Portal : MonoBehaviour {
     //void OnCollisionEnter(Collision other)
     {
 
+        Debug.Log("Trigger Enter");
         GameObject player = other.gameObject;
         var mouse = player.GetComponent<Mouse>();
         var mouseStatus = player.GetComponent<MouseTeleport>();
@@ -28,8 +31,10 @@ public class Portal : MonoBehaviour {
         if (mouse && mouseStatus && !mouseStatus.isTeleporting)
         {
             mouseStatus.isTeleporting = true;
-            player.transform.position = exit.position;
-            player.transform.rotation = exit.rotation;
+            inUse = true;
+            var exitStatus = exit.GetComponent<Portal>();
+            player.transform.position = exit.transform.position;
+            player.transform.rotation = exit.transform.rotation;
         }
 
     }
@@ -42,10 +47,12 @@ public class Portal : MonoBehaviour {
         GameObject player = other.gameObject;
         var mouse = player.GetComponent<Mouse>();
         var mouseStatus = player.GetComponent<MouseTeleport>();
+        var exitStatus = exit.GetComponent<Portal>();
 
-        if (mouse && mouseStatus && !mouseStatus.isTeleporting)
+        if (mouse && mouseStatus && mouseStatus.isTeleporting && exitStatus && exitStatus.inUse)
         {
             mouseStatus.isTeleporting = false;
+            exitStatus.inUse = false;
         }
 
     }
