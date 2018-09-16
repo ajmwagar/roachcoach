@@ -38,7 +38,7 @@ using System;
       }
 
       deliveryArea = GameObject.FindObjectOfType<DeliveryArea>();
-		  deliveryArea.OnPlatePickUp += PickUpFinishedOrder;
+		  deliveryArea.OnPlatePickUp += validateOrder;
 
     }
 
@@ -58,7 +58,7 @@ using System;
 
     // }
 
-    public void PickUpFinishedOrder(Plate plate)
+    public void ValidateOrder(Plate plate)
     {
         current = new Order();
 
