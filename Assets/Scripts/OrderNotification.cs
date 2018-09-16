@@ -5,9 +5,6 @@ using UnityEngine;
 public class OrderNotification : MonoBehaviour
 {
     //public event Action NewOrderPoppedUp = delegate { };
-
-    public OrderHandler OH;
-
     [SerializeField]
     private TextMesh UserAndLabel;
 
@@ -24,9 +21,9 @@ public class OrderNotification : MonoBehaviour
 
     }
 
-    public void SetOrderNotification()
+    public void SetOrderNotification(Order order)
     {
-        UserAndLabel.text = "User: " + OH.final.user + "\nLabel: " + OH.final.label;
-        Description.text = "Desription: " + OH.final.description;
+        UserAndLabel.text = "User: " + order.user + "\nLabel: " + order.label;
+        Description.text = "Desription: " + order.description;
     }
 }
