@@ -1,2 +1,2 @@
 # roachcoach
-A fricken roachcoach in VR
+A food truck simulator in VR. 
